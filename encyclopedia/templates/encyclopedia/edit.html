@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %} 
+{% block title %} 
+Edit
+{% endblock %}
+
+{% block body %} 
+<div>
+    <form action="/wiki/{{title}}/edit" method="post">
+        {% csrf_token %} 
+        <h1>Edit</h1>
+        <input autofocus type="text" name="title" value={{title}} placeholder="Entry name" required>
+        <br>
+        <br>
+        <textarea required name="content" style="width: 850px; height:380px;">{{content}}</textarea>
+        <br>
+        <input type="submit" value="Save">
+    </form>
+</div>
+{% endblock %} 
